@@ -1,4 +1,5 @@
 import arcade
+import arcade.gui
 from utils import user_utils
 
 
@@ -12,3 +13,6 @@ class BaseView(arcade.View):
 
     def on_draw(self):
         self.clear()
+
+    def on_click_default(self, event: arcade.gui.UIOnClickEvent):
+        print("default response to button clicked.")
