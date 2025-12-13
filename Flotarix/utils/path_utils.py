@@ -13,3 +13,7 @@ def find_project_root(marker_files=None):
         current = current.parent
 
     raise FileNotFoundError("No se encontró la raíz del proyecto.")
+
+def get_relative_path(*path_segments):
+    project_root = find_project_root()
+    return project_root.joinpath(*path_segments)
