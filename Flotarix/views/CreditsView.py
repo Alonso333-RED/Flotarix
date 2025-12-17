@@ -7,7 +7,7 @@ from base.BaseButton import BaseButton
 from utils import assets_utils
 from config import config
 
-class NewsView(BaseView):
+class CreditsView(BaseView):
     def __init__(self):
         super().__init__()
 
@@ -20,14 +20,14 @@ class NewsView(BaseView):
         self.version_text = BaseText(text=config.VERSION,font_size=16)
         self.texts_to_show.append(self.version_text)
 
-        self.news_text = "Primera version de Flotarix! Ve a la ventana de ayuda para aprender a jugar."
+        self.credits_text = "Diseñado y programado por Alonso.\nTodos los recursos usados fueron creados por mí o tomados de bibliotecas de assets libres.\n¡Gracias por jugar Flotarix!"
 
-        self.news_text_space = BaseLargeText(self.news_text, 
+        self.credits_text_space = BaseLargeText(self.credits_text, 
                                         width=self.window.width * 3 // 4,
                                         height=self.window.height // 3,
                                         font_size=18)
         
-        self.uimanager.add(self.news_text_space)
+        self.uimanager.add(self.credits_text_space)
 
         self.back_button = BaseButton("Atras", width = config.WINDOW_WIDTH//4, when_clicked=self.on_click_back)
         self.prepare_button(self.back_button)
@@ -43,8 +43,8 @@ class NewsView(BaseView):
         self.version_text.x = self.window.width // 2
         self.version_text.y = self.window.height * 14 // 24
 
-        self.news_text_space.center_x = self.window.width // 2
-        self.news_text_space.center_y = self.window.height * 14 // 36
+        self.credits_text_space.center_x = self.window.width // 2
+        self.credits_text_space.center_y = self.window.height * 14 // 36
 
         self.back_button.center_x = self.window.width // 2
         self.back_button.center_y = self.window.height // 6

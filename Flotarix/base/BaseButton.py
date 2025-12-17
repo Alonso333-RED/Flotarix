@@ -4,7 +4,7 @@ from config import config
 
 class BaseButton(UIFlatButton):
     def __init__(self, text="Button", width=config.WINDOW_WIDTH//4, height=config.WINDOW_HEIGHT//12, font_size=16, when_clicked=None):
-        base_color = tuple(load_user_settings().get("color_theme", [64,0,0,255]))
+        base_color = tuple(load_user_settings().get("game_color", [64,0,0,255]))
         light = is_light(base_color)
 
         fg = (0,0,0,255) if light else (255,255,255,255)

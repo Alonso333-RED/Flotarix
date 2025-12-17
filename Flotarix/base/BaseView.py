@@ -3,12 +3,12 @@ import arcade.gui
 from utils import user_utils
 from utils import assets_utils
 
-
 class BaseView(arcade.View):
     def __init__(self):
         super().__init__()
         self.settings = user_utils.load_user_settings()
-        self.background_color = self.settings["color_theme"]
+        self.ui_volume = self.settings.get("ui_volume", 1.0)
+        self.background_color = self.settings["game_color"]
         self.uimanager = arcade.gui.UIManager()
         self.uimanager.enable()
         self.v_box = arcade.gui.UIBoxLayout(vertical=True, space_between=15)
@@ -32,7 +32,7 @@ class BaseView(arcade.View):
 
     def on_click_default(self, event: arcade.gui.UIOnClickEvent):
         print("default response to button clicked.")
-        assets_utils.execute_sound("click.mp3")
+        assets_utils.execute_sound("click.mp3", self.ui_volume)
 
     def prepare_button(self, button: arcade.gui.UIFlatButton, v_box: arcade.gui.UIBoxLayout = None): # type: ignore
         if v_box is not None:

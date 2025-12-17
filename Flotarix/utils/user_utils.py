@@ -5,8 +5,36 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 USER_SETTINGS_FILE = BASE_DIR / "user_data" / "settings.json"
 
 DEFAULT_SETTINGS = {
-    "username": "Player",
-    "color_theme": [64, 0, 0],
+    "ui_volume": 1.0,
+    "username1": "Jugador1",
+    "user1_color": [
+        255,
+        0,
+        0
+    ],
+    "username2": "Jugador2",
+    "user2_color": [
+        0,
+        0,
+        255
+    ],
+    "username3": "Jugador3",
+    "user3_color": [
+        0,
+        255,
+        0
+    ],
+    "username4": "Jugador4",
+    "user4_color": [
+        255,
+        255,
+        0
+    ],
+    "game_color": [
+        64,
+        0,
+        0
+    ]
 }
 
 def load_user_settings():
