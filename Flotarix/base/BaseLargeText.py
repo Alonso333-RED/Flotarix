@@ -3,7 +3,12 @@ from utils.user_utils import load_user_settings, is_light
 from config import config
 
 class BaseLargeText(UITextArea):
-    def __init__(self, text="", width=config.WINDOW_WIDTH // 2, height=config.WINDOW_HEIGHT // 2, font_size=24, **kwargs):
+    def __init__(self, 
+                 text="", 
+                 width=config.WINDOW_WIDTH * 0.5, 
+                 height=config.WINDOW_HEIGHT * 0.5, 
+                 font_size=24, 
+                 **kwargs):
 
         base_color = tuple(load_user_settings().get("game_color", [64,0,0,255]))
         light = is_light(base_color)

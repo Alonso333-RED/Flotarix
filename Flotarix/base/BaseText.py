@@ -3,8 +3,14 @@ from utils.user_utils import load_user_settings, is_light
 from config import config
 
 class BaseText(arcade.Text):
-    def __init__(self, text="", x=config.WINDOW_WIDTH // 2, y=config.WINDOW_HEIGHT // 2,
-                 color=None, font_size=14, anchor_x="center", anchor_y="center", **kwargs):
+    def __init__(self, text="", 
+                 x=config.WINDOW_WIDTH * 0.5, 
+                 y=config.WINDOW_HEIGHT * 0.5,
+                 color=None, 
+                 font_size=14, 
+                 anchor_x="center", 
+                 anchor_y="center", 
+                 **kwargs):
         base_color = tuple(load_user_settings().get("game_color", [64,0,0,255]))
         light = is_light(base_color)
 

@@ -6,6 +6,11 @@ USER_SETTINGS_FILE = BASE_DIR / "user_data" / "settings.json"
 
 DEFAULT_SETTINGS = {
     "ui_volume": 1.0,
+    "game_color": [
+        0,
+        0,
+        0
+    ],
     "username1": "Jugador1",
     "user1_color": [
         255,
@@ -30,11 +35,6 @@ DEFAULT_SETTINGS = {
         255,
         0
     ],
-    "game_color": [
-        64,
-        0,
-        0
-    ]
 }
 
 def load_user_settings():
@@ -53,6 +53,58 @@ def load_user_settings():
     settings.update(data)
     
     return settings
+
+def save_user_settings(settings):
+    USER_SETTINGS_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(USER_SETTINGS_FILE, "w") as f:
+        json.dump(settings, f, indent=4)
+
+def save_colors_to(red_requester, green_requester, blue_requester, order: str):
+        red = red_requester.text.strip()
+        green = green_requester.text.strip()
+        blue = blue_requester.text.strip()
+
+        settings = load_user_settings()
+        current_color = settings.get("game_color", [64, 0, 0])
+        current_red = current_color[0]
+        current_green = current_color[1]
+        current_blue = current_color[2]
+
+        try:
+            red = int(red) if red != "" else current_red
+        except ValueError:
+            print("Valor inválido para Red")
+            return
+
+        try:
+            green = int(green) if green != "" else current_green
+        except ValueError:
+            print("Valor inválido para Green")
+            return
+
+        try:
+            blue = int(blue) if blue != "" else current_blue
+        except ValueError:
+            print("Valor inválido para Blue")
+            return
+        
+        if not (0 <= red <= 255 and 0 <= green <= 255 and 0 <= blue <= 255):
+            print("Color values must be between 0 and 255.")
+            return
+        
+        settings[order] = [red, green, blue]
+
+        save_user_settings(settings)
+
+def save_name_to(name_requester, order: str):
+    name = name_requester.text.strip()
+    name = name[:10]
+
+    settings = load_user_settings()
+    settings[order] = name
+
+    save_user_settings(settings)
 
 def is_light(color):
     r, g, b = color

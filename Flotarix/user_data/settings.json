@@ -1,5 +1,10 @@
 {
     "ui_volume": 1.0,
+    "game_color": [
+        26,
+        26,
+        26
+    ],
     "username1": "Jugador1",
     "user1_color": [
         255,
@@ -22,11 +27,6 @@
     "user4_color": [
         255,
         255,
-        0
-    ],
-    "game_color": [
-        64,
-        0,
         0
     ]
 }

@@ -22,32 +22,33 @@ class CreditsView(BaseView):
 
         self.credits_text = "Diseñado y programado por Alonso.\nTodos los recursos usados fueron creados por mí o tomados de bibliotecas de assets libres.\n¡Gracias por jugar Flotarix!"
 
-        self.credits_text_space = BaseLargeText(self.credits_text, 
-                                        width=self.window.width * 3 // 4,
-                                        height=self.window.height // 3,
+        self.text_space = BaseLargeText(self.credits_text, 
+                                        width=self.window.width * 0.75,
+                                        height=self.window.height * 0.33,
                                         font_size=18)
         
-        self.uimanager.add(self.credits_text_space)
+        self.uimanager.add(self.text_space)
 
-        self.back_button = BaseButton("Atras", width = config.WINDOW_WIDTH//4, when_clicked=self.on_click_back)
+        self.back_button = BaseButton("Atras", width = config.WINDOW_WIDTH * 0.25, when_clicked=self.on_click_back)
         self.prepare_button(self.back_button)
 
     def on_draw(self):
         super().on_draw()
-        self.title_text.x = self.window.width // 2
-        self.title_text.y = self.window.height * 4 // 5
 
-        self.author_text.x = self.window.width // 2
-        self.author_text.y = self.window.height * 175 // 275
+        self.title_text.x = self.window.width * 0.5
+        self.title_text.y = self.window.height * 0.8
 
-        self.version_text.x = self.window.width // 2
-        self.version_text.y = self.window.height * 14 // 24
+        self.author_text.x = self.window.width * 0.5
+        self.author_text.y = self.window.height * 0.64
 
-        self.credits_text_space.center_x = self.window.width // 2
-        self.credits_text_space.center_y = self.window.height * 14 // 36
+        self.version_text.x = self.window.width * 0.5
+        self.version_text.y = self.window.height * 0.6
 
-        self.back_button.center_x = self.window.width // 2
-        self.back_button.center_y = self.window.height // 6
+        self.text_space.center_x = self.window.width * 0.5
+        self.text_space.center_y = self.window.height * 0.4125
+
+        self.back_button.center_x = self.window.width * 0.5
+        self.back_button.center_y = self.window.height * 0.2
 
     def on_click_back(self, event: arcade.gui.UIOnClickEvent):
         print("response to back button clicked.")

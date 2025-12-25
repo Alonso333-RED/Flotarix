@@ -3,7 +3,13 @@ from utils.user_utils import load_user_settings, is_light, adjust
 from config import config
 
 class BaseButton(UIFlatButton):
-    def __init__(self, text="Button", width=config.WINDOW_WIDTH//4, height=config.WINDOW_HEIGHT//12, font_size=16, when_clicked=None):
+    def __init__(self, 
+                 text="Button", 
+                 width=config.WINDOW_WIDTH * 0.25, 
+                 height=config.WINDOW_HEIGHT * 0.1, 
+                 font_size=16, 
+                 when_clicked=None):
+        
         base_color = tuple(load_user_settings().get("game_color", [64,0,0,255]))
         light = is_light(base_color)
 
@@ -32,10 +38,16 @@ class BaseButton(UIFlatButton):
                                              font_size=font_size,
                                              font_color=fg)
         }
-        super().__init__(text=text, width=width, height=height, style=style)
+
+        super().__init__(text=text, 
+                         width=width, 
+                         height=height, 
+                         style=style)
+
         if when_clicked is not None:
             self.on_click = when_clicked
         else:
             self.on_click = self.default_action
+
     def default_action(self, event):
         print(f"{self.text} button clicked.")
