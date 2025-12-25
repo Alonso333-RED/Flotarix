@@ -3,7 +3,7 @@ from pathlib import Path
 def find_project_root(marker_files=None):
 
     if marker_files is None:
-        marker_files = ["main.py"]
+        marker_files = ["Flotarix.py"]
 
     current = Path(__file__).resolve().parent
     while current != current.parent:
