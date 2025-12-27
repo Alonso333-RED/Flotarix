@@ -13,6 +13,7 @@ class BaseView(arcade.View):
         self.player3_color = self.settings.get("user3_color", [0, 255, 0])
         self.player4_color = self.settings.get("user4_color", [255, 255, 0])
         self.ui_volume = self.settings.get("ui_volume", 1.0)
+        self.effects_volume = self.settings.get("effects_volume", 1.0)
         self.background_color = self.settings["game_color"]
         self.uimanager = arcade.gui.UIManager()
         self.uimanager.enable()

@@ -1,11 +1,13 @@
 import json
 from pathlib import Path
+from utils.math_utils import clamp
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 USER_SETTINGS_FILE = BASE_DIR / "user_data" / "settings.json"
 
 DEFAULT_SETTINGS = {
     "ui_volume": 1.0,
+    "effects_volume": 1.0,
     "game_color": [
         0,
         0,
@@ -103,6 +105,34 @@ def save_name_to(name_requester, order: str):
 
     settings = load_user_settings()
     settings[order] = name
+
+    save_user_settings(settings)
+
+def save_volume_to(ui_volume_requester, effects_volume_requester):
+    new_ui_volume = ui_volume_requester.text.strip()
+    new_effects_volume = effects_volume_requester.text.strip()
+
+    settings = load_user_settings()
+    current_ui_volume = settings.get("ui_volume", 1.0)
+    current_effects_volume = settings.get("effects_volume", 1.0)
+
+    try:
+        new_ui_volume = float(new_ui_volume) / 100.0 if new_ui_volume != "" else current_ui_volume
+    except ValueError:
+        print("Invalid value for UI Volume")
+        return
+
+    try:
+        new_effects_volume = float(new_effects_volume) / 100.0 if new_effects_volume != "" else current_effects_volume
+    except ValueError:
+        print("Invalid value for Effects Volume")
+        return
+    
+    new_ui_volume = clamp(new_ui_volume, 0.0, 1.0)
+    new_effects_volume = clamp(new_effects_volume, 0.0, 1.0)
+
+    settings["ui_volume"] = new_ui_volume
+    settings["effects_volume"] = new_effects_volume
 
     save_user_settings(settings)
 

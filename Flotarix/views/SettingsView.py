@@ -107,6 +107,25 @@ class SettingsView(BaseView):
         self.save_player4_color = BaseButton("Guardar", width = config.WINDOW_WIDTH * 0.175, when_clicked=self.on_click_save_player4_color)
         self.prepare_button(self.save_player4_color)
 
+
+        self.volume_text_indicator = BaseText(text="Volumen (0-100): ",font_size=28)
+        self.texts_to_show.append(self.volume_text_indicator)
+
+        self.ui_volume_text_indicator = BaseText(text="Interfaz: ",font_size=21)
+        self.texts_to_show.append(self.ui_volume_text_indicator)
+        self.ui_volume_input = BaseInputText(text = str(int(self.ui_volume*100)),width=config.WINDOW_WIDTH * 0.065625, height=config.WINDOW_HEIGHT * 0.075 ,font_size = 21, base_color= self.game_colors)
+        self.uimanager.add(self.ui_volume_input)
+
+
+        self.effects_volume_text_indicator = BaseText(text="Efectos: ",font_size=21)
+        self.texts_to_show.append(self.effects_volume_text_indicator)
+        self.effects_volume_input = BaseInputText(text = str(int(self.effects_volume*100)),width=config.WINDOW_WIDTH * 0.065625, height=config.WINDOW_HEIGHT * 0.075 ,font_size = 21, base_color= self.game_colors)
+        self.uimanager.add(self.effects_volume_input)
+
+
+        self.save_volume_preferences = BaseButton("Guardar", width = config.WINDOW_WIDTH * 0.13125, when_clicked=self.on_click_save_volume_preferences)
+        self.prepare_button(self.save_volume_preferences)
+
     def on_draw(self):
         super().on_draw()
 
@@ -210,6 +229,25 @@ class SettingsView(BaseView):
         self.save_player4_color.center_x = self.window.width * 0.825
         self.save_player4_color.center_y = self.window.height * 0.3375
 
+
+        self.volume_text_indicator.x = self.window.width * 0.5
+        self.volume_text_indicator.y = self.window.height * 0.25
+
+        self.ui_volume_text_indicator.x = self.window.width * 0.25
+        self.ui_volume_text_indicator.y = self.window.height * 0.175
+        self.ui_volume_input.center_x = self.window.width * 0.35
+        self.ui_volume_input.center_y = self.window.height * 0.1725
+
+        self.effects_volume_text_indicator.x = self.window.width * 0.5
+        self.effects_volume_text_indicator.y = self.window.height * 0.175
+        self.effects_volume_input.center_x = self.window.width * 0.6
+        self.effects_volume_input.center_y = self.window.height * 0.1725
+
+        self.save_volume_preferences.center_x = self.window.width * 0.75
+        self.save_volume_preferences.center_y = self.window.height * 0.1725
+
+        
+
     def on_click_back(self, event: arcade.gui.UIOnClickEvent):
         print("response to back button clicked.")
         assets_utils.execute_sound("click.mp3", self.ui_volume)
@@ -246,3 +284,8 @@ class SettingsView(BaseView):
         assets_utils.execute_sound("click.mp3", self.ui_volume)
         user_utils.save_colors_to(self.player4_color_red_input, self.player4_color_green_input, self.player4_color_blue_input, "user4_color")
         user_utils.save_name_to(self.player4_name_input, "username4")
+
+    def on_click_save_volume_preferences(self, event: arcade.gui.UIOnClickEvent):
+        print("response to save volume preferences button clicked.")
+        assets_utils.execute_sound("click.mp3", self.ui_volume)
+        user_utils.save_volume_to(self.ui_volume_input, self.effects_volume_input)
