@@ -20,7 +20,7 @@ class MenuView(BaseView):
         self.version_text = BaseText(text=config.VERSION,font_size=16)
         self.texts_to_show.append(self.version_text)
 
-        self.start_button = BaseButton("Empezar", width = config.WINDOW_WIDTH * 0.5, when_clicked=self.on_click_default)
+        self.start_button = BaseButton("Empezar", width = config.WINDOW_WIDTH * 0.5, when_clicked=self.on_click_start)
         self.prepare_button(self.start_button)
 
         self.news_button = BaseButton("Novedades", width = config.WINDOW_WIDTH * 0.25, when_clicked=self.on_click_news)
@@ -38,8 +38,7 @@ class MenuView(BaseView):
         self.exit_button = BaseButton("Salir", width = config.WINDOW_WIDTH * 0.25, when_clicked=self.on_click_exit)
         self.prepare_button(self.exit_button)
 
-    def on_draw(self):
-        super().on_draw()
+    def update_layout(self):
         self.title_text.x = self.window.width * 0.5
         self.title_text.y = self.window.height * 0.8
 
@@ -67,8 +66,25 @@ class MenuView(BaseView):
         self.exit_button.center_x = self.window.width * 0.5
         self.exit_button.center_y = self.window.height * 0.2
 
+    def on_draw(self):
+        super().on_draw()
+
+    def on_resize(self, width, height):
+        super().on_resize(width, height)
+
+    def on_show_view(self):
+        super().on_show_view()
+
+    def on_click_start(self, event: arcade.gui.UIOnClickEvent):
+        print("start clicked.")
+        assets_utils.execute_sound("click.mp3", self.ui_volume)
+        from views.GameSelectionView import GameSelectionView
+        self.uimanager.clear()
+        view = GameSelectionView()
+        self.window.show_view(view)
+
     def on_click_settings(self, event: arcade.gui.UIOnClickEvent):
-        print("response to settings button clicked.")
+        print("settings clicked.")
         assets_utils.execute_sound("click.mp3", self.ui_volume)
         from views.SettingsView import SettingsView
         self.uimanager.clear()
@@ -76,7 +92,7 @@ class MenuView(BaseView):
         self.window.show_view(view)
 
     def on_click_news(self, event: arcade.gui.UIOnClickEvent):
-        print("response to news button clicked.")
+        print("news clicked.")
         assets_utils.execute_sound("click.mp3", self.ui_volume)
         from views.NewsView import NewsView
         self.uimanager.clear()
@@ -84,7 +100,7 @@ class MenuView(BaseView):
         self.window.show_view(view)
 
     def on_click_help(self, event: arcade.gui.UIOnClickEvent):
-        print("response to help button clicked.")
+        print("help clicked.")
         assets_utils.execute_sound("click.mp3", self.ui_volume)
         from views.HelpView import HelpView
         self.uimanager.clear()
@@ -92,7 +108,7 @@ class MenuView(BaseView):
         self.window.show_view(view)
 
     def on_click_credits(self, event: arcade.gui.UIOnClickEvent):
-        print("response to credits button clicked.")
+        print("credits clicked.")
         assets_utils.execute_sound("click.mp3", self.ui_volume)
         from views.CreditsView import CreditsView
         self.uimanager.clear()
@@ -100,7 +116,7 @@ class MenuView(BaseView):
         self.window.show_view(view)
 
     def on_click_exit(self, event: arcade.gui.UIOnClickEvent):
-        print("response to exit button clicked.")
+        print("exit clicked.")
         assets_utils.execute_sound("exit.mp3", self.ui_volume)
         self.uimanager.clear()
         time.sleep(1)

@@ -32,8 +32,7 @@ class NewsView(BaseView):
         self.back_button = BaseButton("Atras", width = config.WINDOW_WIDTH * 0.25, when_clicked=self.on_click_back)
         self.prepare_button(self.back_button)
 
-    def on_draw(self):
-        super().on_draw()
+    def update_layout(self):
         self.title_text.x = self.window.width * 0.5
         self.title_text.y = self.window.height * 0.8
 
@@ -49,8 +48,17 @@ class NewsView(BaseView):
         self.back_button.center_x = self.window.width * 0.5
         self.back_button.center_y = self.window.height * 0.2
 
+    def on_draw(self):
+        super().on_draw()
+
+    def on_resize(self, width, height):
+        super().on_resize(width, height)
+
+    def on_show_view(self):
+        super().on_show_view()
+
     def on_click_back(self, event: arcade.gui.UIOnClickEvent):
-        print("response to back button clicked.")
+        print("back clicked.")
         assets_utils.execute_sound("click.mp3", self.ui_volume)
         from views.MenuView import MenuView
         self.uimanager.clear()

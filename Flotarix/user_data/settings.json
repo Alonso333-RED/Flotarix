@@ -1,31 +1,31 @@
 {
     "ui_volume": 1.0,
-    "effects_volume": 0.0,
+    "effects_volume": 1.0,
     "game_color": [
-        64,
-        0,
-        0
+        128,
+        32,
+        32
     ],
-    "username1": "Jugador1",
-    "user1_color": [
+    "player1_name": "Jugador1",
+    "player1_color": [
         255,
         0,
         0
     ],
-    "username2": "Jugador2",
-    "user2_color": [
+    "player2_name": "Jugador2",
+    "player2_color": [
         0,
         0,
         255
     ],
-    "username3": "Jugador3",
-    "user3_color": [
+    "player3_name": "Jugador3",
+    "player3_color": [
         0,
         255,
         0
     ],
-    "username4": "Jugador4",
-    "user4_color": [
+    "player4_name": "Jugador4",
+    "player4_color": [
         255,
         255,
         0

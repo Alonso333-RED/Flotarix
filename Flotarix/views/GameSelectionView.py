@@ -1,33 +1,23 @@
 import arcade
 import arcade.gui
+import time
 from base.BaseView import BaseView
-from base.BaseText import BaseText
-from base.BaseLargeText import BaseLargeText
 from base.BaseButton import BaseButton
+from base.BaseText import BaseText
 from utils import assets_utils
 from config import config
 
-class CreditsView(BaseView):
+class GameSelectionView(BaseView):
     def __init__(self):
         super().__init__()
-
-        self.title_text = BaseText(text="Flotarix",font_size=128)
+        self.title_text = BaseText(text="Flotarix",font_size=64)
         self.texts_to_show.append(self.title_text)
 
-        self.author_text = BaseText(text="Alonso",font_size=16)
+        self.author_text = BaseText(text="Alonso",font_size=8)
         self.texts_to_show.append(self.author_text)
 
-        self.version_text = BaseText(text=config.VERSION,font_size=16)
+        self.version_text = BaseText(text=config.VERSION,font_size=8)
         self.texts_to_show.append(self.version_text)
-
-        self.credits_text = "Diseñado y programado por Alonso.\nTodos los recursos usados fueron creados por mí o tomados de bibliotecas de assets libres.\n¡Gracias por jugar Flotarix!"
-
-        self.text_space = BaseLargeText(self.credits_text, 
-                                        width=self.window.width * 0.75,
-                                        height=self.window.height * 0.33,
-                                        font_size=18)
-        
-        self.uimanager.add(self.text_space)
 
         self.back_button = BaseButton("Atras", width = config.WINDOW_WIDTH * 0.25, when_clicked=self.on_click_back)
         self.prepare_button(self.back_button)
@@ -35,19 +25,16 @@ class CreditsView(BaseView):
     def update_layout(self):
 
         self.title_text.x = self.window.width * 0.5
-        self.title_text.y = self.window.height * 0.8
+        self.title_text.y = self.window.height * 0.9
 
         self.author_text.x = self.window.width * 0.5
-        self.author_text.y = self.window.height * 0.64
+        self.author_text.y = self.window.height * 0.825
 
         self.version_text.x = self.window.width * 0.5
-        self.version_text.y = self.window.height * 0.6
-
-        self.text_space.center_x = self.window.width * 0.5
-        self.text_space.center_y = self.window.height * 0.4125
+        self.version_text.y = self.window.height * 0.80625
 
         self.back_button.center_x = self.window.width * 0.5
-        self.back_button.center_y = self.window.height * 0.2
+        self.back_button.center_y = self.window.height * 0.05
 
     def on_draw(self):
         super().on_draw()

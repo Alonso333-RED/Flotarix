@@ -7,11 +7,11 @@ class BaseView(arcade.View):
     def __init__(self):
         super().__init__()
         self.settings = user_utils.load_user_settings()
-        self.game_colors = self.settings.get("game_color", [64, 0, 0])
-        self.player1_color = self.settings.get("user1_color", [255, 0, 0])
-        self.player2_color = self.settings.get("user2_color", [0, 0, 255])
-        self.player3_color = self.settings.get("user3_color", [0, 255, 0])
-        self.player4_color = self.settings.get("user4_color", [255, 255, 0])
+        self.game_color = self.settings.get("game_color", [64, 0, 0])
+        self.player1_color = self.settings.get("player1_color", [255, 0, 0])
+        self.player2_color = self.settings.get("player2_color", [0, 0, 255])
+        self.player3_color = self.settings.get("player3_color", [0, 255, 0])
+        self.player4_color = self.settings.get("player4_color", [255, 255, 0])
         self.ui_volume = self.settings.get("ui_volume", 1.0)
         self.effects_volume = self.settings.get("effects_volume", 1.0)
         self.background_color = self.settings["game_color"]
@@ -31,10 +31,19 @@ class BaseView(arcade.View):
 
         self.texts_to_show = []
 
+    def update_layout(self):
+        pass
+
     def on_draw(self):
         self.clear()
         self.uimanager.draw()
         self.show_texts(self.texts_to_show)
+
+    def on_resize(self, width, height):
+        self.update_layout()
+
+    def on_show_view(self):
+        self.update_layout()
 
     def on_click_default(self, event: arcade.gui.UIOnClickEvent):
         print("default response to button clicked.")
