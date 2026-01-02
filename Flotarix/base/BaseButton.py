@@ -8,9 +8,11 @@ class BaseButton(UIFlatButton):
                  width=config.WINDOW_WIDTH * 0.25, 
                  height=config.WINDOW_HEIGHT * 0.1, 
                  font_size=16, 
-                 when_clicked=None):
+                 when_clicked=None,
+                 base_color = None):
         
-        base_color = tuple(load_user_settings().get("game_color", [64,0,0,255]))
+        if base_color is None:
+            base_color = tuple(load_user_settings().get("game_color", [64,0,0,255]))
         light = is_light(base_color)
 
         fg = (0,0,0,255) if light else (255,255,255,255)
