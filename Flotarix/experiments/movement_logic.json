@@ -1,0 +1,57 @@
+{
+  "name": "Queen Vanguard",
+  "cost": 400,
+  "cooldown": 1,
+
+  "movement": {
+    "connected": [
+      { "dx": 1, "dy": 0, "steps": 7, "accessible": 1 },
+      { "dx": -1, "dy": 0, "steps": 7, "accessible": 1 },
+      { "dx": 0, "dy": 1, "steps": 7, "accessible": 1 },
+      { "dx": 0, "dy": -1, "steps": 7, "accessible": 1 },
+      { "dx": 1, "dy": 1, "steps": 7, "accessible": 1 },
+      { "dx": -1, "dy": 1, "steps": 7, "accessible": 1 },
+      { "dx": -1, "dy": -1, "steps": 7, "accessible": 1 },
+      { "dx": 1, "dy": -1, "steps": 7, "accessible": 1 }
+    ],
+    "jumps": [
+      { "dx": 2, "dy": 1, "accessible": 1 },
+      { "dx": 1, "dy": 2, "accessible": 1 },
+      { "dx": -1, "dy": 2, "accessible": 1 },
+      { "dx": -2, "dy": 1, "accessible": 1 },
+      { "dx": -2, "dy": -1, "accessible": 1 },
+      { "dx": -1, "dy": -2, "accessible": 1 },
+      { "dx": 1, "dy": -2, "accessible": 1 },
+      { "dx": 2, "dy": -1, "accessible": 1 }
+    ],
+    "special": [
+      [
+        { "dx": 0, "dy": 1, "accessible": 1 },
+        { "dx": 1, "dy": 1, "accessible": 1 },
+        { "dx": 2, "dy": 1, "accessible": 1 },
+        { "dx": 3, "dy": 1, "accessible": 1 }
+      ],
+      [
+        { "dx": -1, "dy": 0, "accessible": 1 },
+        { "dx": -1, "dy": -1, "accessible": 1 },
+        { "dx": 0, "dy": -2, "accessible": 1 }
+      ]
+    ]
+  },
+
+  "attack": {
+    "connected": [
+      { "dx": 1, "dy": 0, "steps": 7, "accessible": 1 },
+      { "dx": -1, "dy": 0, "steps": 7, "accessible": 1 },
+      { "dx": 0, "dy": 1, "steps": 7, "accessible": 1 },
+      { "dx": 0, "dy": -1, "steps": 7, "accessible": 1 },
+      { "dx": 1, "dy": 1, "steps": 7, "accessible": 1 },
+      { "dx": -1, "dy": 1, "steps": 7, "accessible": 1 },
+      { "dx": -1, "dy": -1, "steps": 7, "accessible": 1 },
+      { "dx": 1, "dy": -1, "steps": 7, "accessible": 1 }
+    ],
+    "jumps": [],
+    "special": [],
+    "damage": 35
+  }
+}

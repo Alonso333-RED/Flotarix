@@ -1,6 +1,8 @@
 from utils import path_utils
 from PIL import Image
 import arcade
+import json
+from core.Spaceship import Spaceship, SpaceshipRecipe
 
 def execute_sound(sound: str, volume: float = 1.0, splash: tuple = (0,0,0,0)):
     sound_path = path_utils.get_relative_path(f"assets/sounds/{sound}")
@@ -8,6 +10,15 @@ def execute_sound(sound: str, volume: float = 1.0, splash: tuple = (0,0,0,0)):
     arcade.play_sound(sound_effect, volume=volume)
 
 _texture_cache = {}
+
+def load_ship_recipe (ship: str) -> SpaceshipRecipe:
+    recipe_path = path_utils.get_relative_path(
+        f"assets/ships/{ship}/{ship}.json"
+    )
+    with open(recipe_path, "r") as file:
+        data = json.load(file)
+    recipe = SpaceshipRecipe(data)
+    return recipe
 
 def load_ship_sprite(
     ship: str,

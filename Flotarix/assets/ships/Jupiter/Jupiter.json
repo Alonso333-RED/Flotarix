@@ -1,0 +1,30 @@
+{
+  "name": "Jupiter",
+  "class": "Flagship",
+  "cost": 0,
+  "cooldown": 0,
+  "hp_pool": 2000,
+  "damage": 800,
+
+  "movement": {
+    "connected": [
+      { "dx": 1, "dy": 0, "steps": 1, "accessible": 1 },
+      { "dx": -1, "dy": 0, "steps": 1, "accessible": 1 },
+      { "dx": 0, "dy": 1, "steps": 1, "accessible": 1 },
+      { "dx": 0, "dy": -1, "steps": 1, "accessible": 1 }
+    ],
+    "jumps": [],
+    "special": []
+  },
+
+  "attack": {
+    "connected": [
+      { "dx": 1, "dy": 1, "steps": 1, "accessible": 1 },
+      { "dx": -1, "dy": 1, "steps": 1, "accessible": 1 },
+      { "dx": -1, "dy": -1, "steps": 1, "accessible": 1 },
+      { "dx": 1, "dy": -1, "steps": 1, "accessible": 1 }
+    ],
+    "jumps": [],
+    "special": []
+  }
+}

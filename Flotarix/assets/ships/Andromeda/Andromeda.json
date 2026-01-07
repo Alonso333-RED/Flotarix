@@ -1,0 +1,38 @@
+{
+  "name": "Andromeda",
+  "class": "Flagship",
+  "cost": 0,
+  "cooldown": 0,
+  "hp_pool": 1900,
+  "damage": 700,
+
+  "movement": {
+    "path": [
+      { "dx": 1, "dy": 0, "steps": 1, "accessible": 1 },
+      { "dx": -1, "dy": 0, "steps": 1, "accessible": 1 },
+      { "dx": 0, "dy": 1, "steps": 1, "accessible": 1 },
+      { "dx": 0, "dy": -1, "steps": 1, "accessible": 1 },
+      { "dx": 1, "dy": 1, "steps": 1, "accessible": 1 },
+      { "dx": -1, "dy": 1, "steps": 1, "accessible": 1 },
+      { "dx": -1, "dy": -1, "steps": 1, "accessible": 1 },
+      { "dx": 1, "dy": -1, "steps": 1, "accessible": 1 }
+    ],
+    "jumps": [],
+    "special_movements": []
+  },
+
+  "attack": {
+    "lasers": [
+      { "dx": 1, "dy": 0, "steps": 1, "accessible": 1 },
+      { "dx": -1, "dy": 0, "steps": 1, "accessible": 1 },
+      { "dx": 0, "dy": 1, "steps": 1, "accessible": 1 },
+      { "dx": 0, "dy": -1, "steps": 1, "accessible": 1 },
+      { "dx": 1, "dy": 1, "steps": 1, "accessible": 1 },
+      { "dx": -1, "dy": 1, "steps": 1, "accessible": 1 },
+      { "dx": -1, "dy": -1, "steps": 1, "accessible": 1 },
+      { "dx": 1, "dy": -1, "steps": 1, "accessible": 1 }
+    ],
+    "mortars": [],
+    "special_attacks": []
+  }
+}
