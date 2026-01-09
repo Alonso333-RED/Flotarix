@@ -4,6 +4,7 @@ from base.BaseView import BaseView
 from base.BaseButton import BaseButton
 from base.BaseText import BaseText
 from utils import assets_utils
+from utils.user_utils import load_user_fleets
 from config import config
 
 class GameSelectionView(BaseView):
@@ -24,7 +25,7 @@ class GameSelectionView(BaseView):
         self.two_players_classic_button = BaseButton("2 Jugadores; Clasico", width = config.WINDOW_WIDTH * 0.375, when_clicked=self.on_click_two_players_classic)
         self.prepare_button(self.two_players_classic_button)
 
-        self.four_players_classic_button = BaseButton("4 Jugadores; Clasico", width = config.WINDOW_WIDTH * 0.375, when_clicked=self.on_click_default)
+        self.four_players_classic_button = BaseButton("4 Jugadores; Clasico", width = config.WINDOW_WIDTH * 0.375, when_clicked=self.on_click_four_players_classic)
         self.prepare_button(self.four_players_classic_button)
 
         self.two_players_fast_button = BaseButton("Proximamente", width = config.WINDOW_WIDTH * 0.375, when_clicked=self.on_click_default)
@@ -33,11 +34,13 @@ class GameSelectionView(BaseView):
         self.four_players_fast_button = BaseButton("Proximamente", width = config.WINDOW_WIDTH * 0.375, when_clicked=self.on_click_default)
         self.prepare_button(self.four_players_fast_button)
 
+        self.fleets = load_user_fleets()
+
         self.player_sprites = arcade.SpriteList()
-        self.player1_sprite = assets_utils.load_ship_sprite("Andromeda", scale=0.125, color_splash=(self.player1_color[0],self.player1_color[1],self.player1_color[2],0.75))
-        self.player2_sprite = assets_utils.load_ship_sprite("Andromeda", scale=0.125, color_splash=(self.player2_color[0],self.player2_color[1],self.player2_color[2],0.75))
-        self.player3_sprite = assets_utils.load_ship_sprite("Jupiter", scale=0.125, color_splash=(self.player3_color[0],self.player3_color[1],self.player3_color[2],0.75))
-        self.player4_sprite = assets_utils.load_ship_sprite("Jupiter", scale=0.125, color_splash=(self.player4_color[0],self.player4_color[1],self.player4_color[2],0.75))
+        self.player1_sprite = assets_utils.load_ship_sprite(self.fleets["player1"]["flagship"], scale=0.125, color_splash=(self.player1_color[0],self.player1_color[1],self.player1_color[2],0.75))
+        self.player2_sprite = assets_utils.load_ship_sprite(self.fleets["player2"]["flagship"], scale=0.125, color_splash=(self.player2_color[0],self.player2_color[1],self.player2_color[2],0.75))
+        self.player3_sprite = assets_utils.load_ship_sprite(self.fleets["player3"]["flagship"], scale=0.125, color_splash=(self.player3_color[0],self.player3_color[1],self.player3_color[2],0.75))
+        self.player4_sprite = assets_utils.load_ship_sprite(self.fleets["player4"]["flagship"], scale=0.125, color_splash=(self.player4_color[0],self.player4_color[1],self.player4_color[2],0.75))
         self.player_sprites.append(self.player1_sprite)
         self.player_sprites.append(self.player2_sprite)
         self.player_sprites.append(self.player3_sprite)
@@ -128,5 +131,13 @@ class GameSelectionView(BaseView):
         assets_utils.execute_sound("click.mp3", self.ui_volume)
         from views.ClassicGameView import ClassicGameView
         self.uimanager.clear()
-        view = ClassicGameView(True, True, False, False)
+        view = ClassicGameView(2)
+        self.window.show_view(view)
+
+    def on_click_four_players_classic(self, event: arcade.gui.UIOnClickEvent):
+        print("two_players_classic clicked.")
+        assets_utils.execute_sound("click.mp3", self.ui_volume)
+        from views.ClassicGameView import ClassicGameView
+        self.uimanager.clear()
+        view = ClassicGameView(4)
         self.window.show_view(view)

@@ -9,7 +9,7 @@ class SpaceshipRecipe:
         self.movement = data["movement"]
         self.hp_pool = data["hp_pool"]
         self.attack = data["attack"]
-        self.image = assets_utils.load_ship_sprite(self.name, 0.048)
+        self.sprite = assets_utils.load_ship_sprite(self.name, 0.048)
 
 
 class Spaceship:
@@ -24,8 +24,8 @@ class Spaceship:
         self.current_hp = recipe.hp_pool
         self.attack = recipe.attack
         self.movement = recipe.movement
-        self.image  = assets_utils.load_ship_sprite(self.name, 0.048, (self.team_color[0], self.team_color[1], self.team_color[2], 0.75))
+        self.sprite  = assets_utils.load_ship_sprite(self.name, 0.048, (self.team_color[0], self.team_color[1], self.team_color[2], 0.75))
 
     def update_sprite_position(self, origin_x, origin_y):
-        self.image.center_x = origin_x + self.x_location * config.SQUARE_SIZE + config.SQUARE_SIZE / 2
-        self.image.center_y = origin_y + self.y_location * config.SQUARE_SIZE + config.SQUARE_SIZE / 2
+        self.sprite.center_x = origin_x + self.x_location * config.SQUARE_SIZE + config.SQUARE_SIZE / 2
+        self.sprite.center_y = origin_y + self.y_location * config.SQUARE_SIZE + config.SQUARE_SIZE / 2

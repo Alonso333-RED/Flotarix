@@ -4,6 +4,7 @@ from utils.math_utils import clamp
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 USER_SETTINGS_FILE = BASE_DIR / "user_data" / "settings.json"
+USER_FLEETS_FILE = BASE_DIR / "user_data" / "fleets.json"
 
 DEFAULT_SETTINGS = {
     "ui_volume": 1.0,
@@ -39,6 +40,37 @@ DEFAULT_SETTINGS = {
     ],
 }
 
+DEFAULT_FLEETS = {
+    "player1": {
+        "flagship": "Andromeda",
+        "heavy": "unknow",
+        "medium": ["unknow", "unknow"],
+        "small": ["unknow", "unknow", "unknow"],
+        "tiny": ["unknow", "unknow", "unknow", "unknow"]
+    },
+    "player2": {
+        "flagship": "Andromeda",
+        "heavy": "unknow",
+        "medium": ["unknow", "unknow"],
+        "small": ["unknow", "unknow", "unknow"],
+        "tiny": ["unknow", "unknow", "unknow", "unknow"]
+    },
+    "player3": {
+        "flagship": "Andromeda",
+        "heavy": "unknow",
+        "medium": ["unknow", "unknow"],
+        "small": ["unknow", "unknow", "unknow"],
+        "tiny": ["unknow", "unknow", "unknow", "unknow"]
+    },
+    "player4": {
+        "flagship": "Andromeda",
+        "heavy": "unknow",
+        "medium": ["unknow", "unknow"],
+        "small": ["unknow", "unknow", "unknow"],
+        "tiny": ["unknow", "unknow", "unknow", "unknow"]
+    }
+}
+
 def load_user_settings():
 
     USER_SETTINGS_FILE.parent.mkdir(parents=True, exist_ok=True)
@@ -55,6 +87,22 @@ def load_user_settings():
     settings.update(data)
     
     return settings
+
+def load_user_fleets():
+    USER_FLEETS_FILE.parent.mkdir(parents=True, exist_ok=True)
+
+    if not USER_FLEETS_FILE.exists():
+        with open(USER_FLEETS_FILE, "w") as f:
+            json.dump(DEFAULT_FLEETS, f, indent=4)
+        return DEFAULT_FLEETS.copy()
+
+    with open(USER_FLEETS_FILE, "r") as f:
+        data = json.load(f)
+
+    fleets = DEFAULT_FLEETS.copy()
+    fleets.update(data)
+
+    return fleets
 
 def save_user_settings(settings):
     USER_SETTINGS_FILE.parent.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,61 @@
+{
+  "name": "Teleporter",
+  "class": "small",
+  "cost": 7,
+  "cooldown": 6,
+  "hp_pool": 550,
+  "damage": 150,
+
+  "movement": {
+    "path": [
+        { "dx": 1, "dy": 0, "steps": 2, "accessible": 1 },
+        { "dx": -1, "dy": 0, "steps": 2, "accessible": 1 },
+        { "dx": 0, "dy": 1, "steps": 2, "accessible": 1 },
+        { "dx": 0, "dy": -1, "steps": 2, "accessible": 1 },
+        { "dx": 1, "dy": 1, "steps": 2, "accessible": 1 },
+        { "dx": -1, "dy": 1, "steps": 2, "accessible": 1 },
+        { "dx": -1, "dy": -1, "steps": 2, "accessible": 1 },
+        { "dx": 1, "dy": -1, "steps": 2, "accessible": 1 }
+    ],
+    "jumps": [
+        { "dx": 5, "dy": 0, "accessible": 1 },
+        { "dx": -5, "dy": 0, "accessible": 1 },
+        { "dx": 0, "dy": 5, "accessible": 1 },
+        { "dx": 0, "dy": -5, "accessible": 1 },
+
+        { "dx": 4, "dy": 3, "accessible": 1 },
+        { "dx": 3, "dy": 4, "accessible": 1 },
+        { "dx": -4, "dy": -3, "accessible": 1 },
+        { "dx": -3, "dy": -4, "accessible": 1 },
+
+        { "dx": -3, "dy": 4, "accessible": 1 },
+        { "dx": -4, "dy": 3, "accessible": 1 },
+        { "dx": 3, "dy": -4, "accessible": 1 },
+        { "dx": 4, "dy": -3, "accessible": 1 }
+    ]
+  },
+
+  "attack": {
+    "lasers": [
+      { "dx": 1, "dy": 0, "steps": 1, "accessible": 1 },
+      { "dx": -1, "dy": 0, "steps": 1, "accessible": 1 },
+      { "dx": 0, "dy": 1, "steps": 1, "accessible": 1 },
+      { "dx": 0, "dy": -1, "steps": 1, "accessible": 1 },
+      { "dx": 1, "dy": 1, "steps": 2, "accessible": 1 },
+      { "dx": -1, "dy": 1, "steps": 2, "accessible": 1 },
+      { "dx": -1, "dy": -1, "steps": 2, "accessible": 1 },
+      { "dx": 1, "dy": -1, "steps": 2, "accessible": 1 }
+    ],
+    "mortars": [
+        { "dx": 3, "dy": 2, "accessible": 1 },
+        { "dx": 2, "dy": 3, "accessible": 1 },
+        { "dx": -3, "dy": -2, "accessible": 1 },
+        { "dx": -2, "dy": -3, "accessible": 1 },
+
+        { "dx": -2, "dy": 3, "accessible": 1 },
+        { "dx": -3, "dy": 2, "accessible": 1 },
+        { "dx": 2, "dy": -3, "accessible": 1 },
+        { "dx": 3, "dy": -2, "accessible": 1 }
+    ]
+  }
+}

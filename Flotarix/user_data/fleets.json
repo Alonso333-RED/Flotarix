@@ -1,0 +1,34 @@
+{
+    "player1": {
+        "flagship": "Andromeda",
+        "position": [5, 10],
+        "heavy": "unknow",
+        "medium": ["unknow", "unknow"],
+        "small": ["unknow", "unknow", "unknow"],
+        "tiny": ["unknow", "unknow", "unknow", "unknow"]
+    },
+    "player2": {
+        "flagship": "Andromeda",
+        "position": [5, 0],
+        "heavy": "unknow",
+        "medium": ["unknow", "unknow"],
+        "small": ["unknow", "unknow", "unknow"],
+        "tiny": ["unknow", "unknow", "unknow", "unknow"]
+    },
+    "player3": {
+        "flagship": "Andromeda",
+        "position": [0, 5],
+        "heavy": "unknow",
+        "medium": ["unknow", "unknow"],
+        "small": ["unknow", "unknow", "unknow"],
+        "tiny": ["unknow", "unknow", "unknow", "unknow"]
+    },
+    "player4": {
+        "flagship": "Andromeda",
+        "position": [10, 5],
+        "heavy": "unknow",
+        "medium": ["unknow", "unknow"],
+        "small": ["unknow", "unknow", "unknow"],
+        "tiny": ["unknow", "unknow", "unknow", "unknow"]
+    }
+}
