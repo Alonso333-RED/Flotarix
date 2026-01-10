@@ -3,31 +3,31 @@
     "effects_volume": 1.0,
     "game_color": [
         64,
-        64,
-        128
+        0,
+        0
     ],
     "player1_name": "Jugador1",
     "player1_color": [
         255,
-        64,
-        64
+        0,
+        0
     ],
     "player2_name": "Jugador2",
     "player2_color": [
-        64,
-        64,
+        0,
+        0,
         255
     ],
     "player3_name": "Jugador3",
     "player3_color": [
-        64,
+        0,
         255,
-        64
+        0
     ],
     "player4_name": "Jugador4",
     "player4_color": [
         255,
         255,
-        64
+        0
     ]
 }
