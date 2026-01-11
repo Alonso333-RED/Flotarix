@@ -37,7 +37,7 @@ class ClassicGameView(BaseView):
         for i in range(len(self.players)):
             fleet = self.fleets_start.get(f"player{i+1}", {})
             flagship_name = fleet.get("flagship", "unknow")
-            recipe = assets_utils.load_ship_recipe(flagship_name)
+            recipe = assets_utils.load_ship_recipe("flagship", flagship_name)
             ship = Spaceship(
                 recipe,
                 player=self.settings.get(f"player{i+1}_name", f"Player {i+1}"),
@@ -59,9 +59,9 @@ class ClassicGameView(BaseView):
         self.selected_ship_sprite = None
         self.selected_ship_sprite_list = arcade.SpriteList()
 
-        self.selected_ship_name = BaseText(text="----------", font_size=12)
-        self.selected_ship_player = BaseText(text="----------", font_size=12)
-        self.selected_ship_hp = BaseText(text="----------", font_size=12)
+        self.selected_ship_name = BaseText(text="", font_size=12)
+        self.selected_ship_player = BaseText(text="", font_size=12)
+        self.selected_ship_hp = BaseText(text="", font_size=12)
         self.texts_to_show.append(self.selected_ship_name)
         self.texts_to_show.append(self.selected_ship_player)
         self.texts_to_show.append(self.selected_ship_hp)

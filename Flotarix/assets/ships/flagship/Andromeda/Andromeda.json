@@ -1,6 +1,6 @@
 {
   "name": "Andromeda",
-  "class": "flagship",
+  "category": "flagship",
   "cost": 0,
   "cooldown": 0,
   "hp_pool": 1900,

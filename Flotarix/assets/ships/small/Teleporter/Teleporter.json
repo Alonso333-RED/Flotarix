@@ -1,6 +1,6 @@
 {
   "name": "Teleporter",
-  "class": "small",
+  "category": "small",
   "cost": 7,
   "cooldown": 6,
   "hp_pool": 550,

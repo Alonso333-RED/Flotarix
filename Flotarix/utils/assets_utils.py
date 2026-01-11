@@ -11,23 +11,24 @@ def execute_sound(sound: str, volume: float = 1.0, splash: tuple = (0,0,0,0)):
 
 _texture_cache = {}
 
-def load_ship_recipe (ship: str) -> SpaceshipRecipe:
+def load_ship_recipe (category: str, ship: str) -> SpaceshipRecipe:
     recipe_path = path_utils.get_relative_path(
-        f"assets/ships/{ship}/{ship}.json"
+        f"assets/ships/{category}/{ship}/{ship}.json"
     )
     with open(recipe_path, "r") as file:
         data = json.load(file)
-    recipe = SpaceshipRecipe(data)
+    recipe = SpaceshipRecipe(category, data)
     return recipe
 
 def load_ship_sprite(
+    category: str,
     ship: str,
     scale: float = 1.0,
     color_splash: tuple[int, int, int, float] | None = None,
 ) -> arcade.Sprite:
 
     sprite_path = path_utils.get_relative_path(
-        f"assets/ships/{ship}/{ship}.png"
+        f"assets/ships/{category}/{ship}/{ship}.png"
     )
 
     if color_splash is None:

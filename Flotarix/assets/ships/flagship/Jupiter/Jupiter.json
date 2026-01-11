@@ -1,6 +1,6 @@
 {
   "name": "Jupiter",
-  "class": "flagship",
+  "category": "flagship",
   "cost": 0,
   "cooldown": 0,
   "hp_pool": 2000,

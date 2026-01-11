@@ -1,0 +1,38 @@
+{
+  "category": "tiny",
+  "name": "Orb",
+  "cost": 2,
+  "cooldown": 1,
+  "hp_pool": 200,
+  "damage": 150,
+
+  "movement": {
+    "path": [
+        { "dx": 1, "dy": 0, "steps": 1, "accessible": 1 },
+        { "dx": -1, "dy": 0, "steps": 1, "accessible": 1 },
+        { "dx": 0, "dy": 1, "steps": 1, "accessible": 1 },
+        { "dx": 0, "dy": -1, "steps": 1, "accessible": 1 },
+        { "dx": 1, "dy": 1, "steps": 1, "accessible": 1 },
+        { "dx": -1, "dy": 1, "steps": 1, "accessible": 1 },
+        { "dx": -1, "dy": -1, "steps": 1, "accessible": 1 },
+        { "dx": 1, "dy": -1, "steps": 1, "accessible": 1 }
+    ],
+    "jumps": [
+    ]
+  },
+
+  "attack": {
+    "lasers": [
+      { "dx": 1, "dy": 0, "steps": 1, "accessible": 1 },
+      { "dx": -1, "dy": 0, "steps": 1, "accessible": 1 },
+      { "dx": 0, "dy": 1, "steps": 1, "accessible": 1 },
+      { "dx": 0, "dy": -1, "steps": 1, "accessible": 1 },
+      { "dx": 1, "dy": 1, "steps": 1, "accessible": 1 },
+      { "dx": -1, "dy": 1, "steps": 1, "accessible": 1 },
+      { "dx": -1, "dy": -1, "steps": 1, "accessible": 1 },
+      { "dx": 1, "dy": -1, "steps": 1, "accessible": 1 }
+    ],
+    "mortars": [
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "category": "tiny",
+  "name": "X",
+  "cost": 2,
+  "cooldown": 1,
+  "hp_pool": 250,
+  "damage": 188,
+
+  "movement": {
+    "path": [
+        { "dx": 1, "dy": 1, "steps": 2, "accessible": 1 },
+        { "dx": -1, "dy": 1, "steps": 2, "accessible": 1 },
+        { "dx": -1, "dy": -1, "steps": 2, "accessible": 1 },
+        { "dx": 1, "dy": -1, "steps": 2, "accessible": 1 }
+    ],
+    "jumps": [
+    ]
+  },
+
+  "attack": {
+    "lasers": [
+      { "dx": 1, "dy": 1, "steps": 2, "accessible": 1 },
+      { "dx": -1, "dy": 1, "steps": 2, "accessible": 1 },
+      { "dx": -1, "dy": -1, "steps": 2, "accessible": 1 },
+      { "dx": 1, "dy": -1, "steps": 2, "accessible": 1 }
+    ],
+    "mortars": [
+    ]
+  }
+}
